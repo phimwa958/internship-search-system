@@ -1,0 +1,115 @@
+<?php
+require_once __DIR__ . '/../includes/functions.php';
+
+$baseUrl = $_ENV['BASE_URL'] ?? '';
+
+session_start();
+
+if (isset($_SESSION['checklogin'])) {
+    header("Location: {$baseUrl}/dashboard/index.php");
+    exit;
+}
+
+?>
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="../public/images/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+
+    <title>เข้าสู่ระบบ - ฐานข้อมูลการฝึกงานนักศึกษา</title>
+
+    <!-- Font Awesome -->
+    <link href="../vendor/fortawesome/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Tailwind-->
+    <link rel="stylesheet" href="../public/css/tailwind.css">
+</head>
+
+<body class="relative flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <?php include dirname(__DIR__) . '/components/navbar.php'; ?>
+
+    <!-- Layout -->
+    <div class="flex min-h-screen">
+        <div class="mx-auto w-full grid lg:grid-cols-[8fr,9fr]">
+            <!-- Background -->
+            <img src="../public/images/login_page.jpg" alt="background"
+                class="absolute inset-0 w-full h-full object-cover z-4" />
+
+            <!-- Login Box -->
+            <div class="flex">
+                <div class="h-full w-24 bg-sky-500 z-10"></div>
+                <div class="relative z-10 bg-white p-12 shadow-xl flex flex-col justify-center space-y-8">
+                    <h1 class="text-5xl font-bold text-sky-500 text-center">เข้าสู่ระบบ</h1>
+                    <p class="text-2xl text-gray-400 text-center">
+                        <span class="inline-block">ฐานข้อมูล</span><span class="inline-block">การฝึกงาน</span><span
+                            class="inline-block">นักศึกษา</span><span class="inline-block">มหาวิทยาลัย</span><span
+                            class="inline-block">สวนดุสิต</span>
+                    </p>
+
+                    <form action="<?php echo $baseUrl . '/actions/login_form.php'; ?>" method="POST"
+                        class="flex flex-col space-y-6 w-full max-w-lg mx-auto">
+                        <?php if (!empty($_SESSION['message'])): ?>
+                            <div class=" rounded-md indent-[1rem] bg-amber-200 z-10 py-2" role="alert">
+                                <?php echo $_SESSION['message']; ?>
+                                <button type="button" class=""></button>
+                                <?php unset($_SESSION['message']); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Input email -->
+                        <section class="relative w-full">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <input type="email" name="email" placeholder="Email address"
+                                class="w-full border border-gray-400 rounded-lg pl-12 pr-5 py-2 text-lg text-gray-500 focus:ring-2 focus:ring-sky-400 focus:outline-none" />
+                        </section>
+
+                        <!-- Input password -->
+                        <section class="relative w-full">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input type="password" name="password" placeholder="Password"
+                                class="w-full border border-gray-400 rounded-lg pl-12 pr-5 py-2 text-lg text-gray-500 focus:ring-2 focus:ring-sky-400 focus:outline-none" />
+                        </section>
+
+                        <!-- Submit login button -->
+                        <button type="submit"
+                            class="bg-sky-500 text-white text-2xl py-2 rounded-lg hover:bg-sky-600 transition">
+                            เข้าสู่ระบบ
+                        </button>
+                    </form>
+
+                    <style>
+                        .link-no-margin-top {
+                            margin-top: 17px !important;
+                        }
+                    </style>
+
+                    <div class="flex flex-row justify-end items-end link-no-margin-top">
+                        <a href="<?= $baseUrl ?>" class="text-sky-600 hover:underline text-lg font-medium">
+                            กลับสู่หน้าหลัก
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

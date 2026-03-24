@@ -1,0 +1,112 @@
+/* Custom styles for the Internship Search System */
+
+.h1-title {
+    line-height: 1.65;
+}
+
+/* sm (Tailwind) */
+.h2-title {
+    font-size: 1.65rem;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.h3-title {
+    font-size: 1.45rem;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.p-description {
+    font-size: 1rem;
+    line-height: 2;
+    text-align: left;
+}
+
+/* md (Tailwind) */
+@media (min-width: 768px) {
+    .h2-title {
+        font-size: 2rem;
+        line-height: 1.65;
+        text-align: left;
+    }
+
+    .h3-title {
+        font-size: 1.5rem;
+        line-height: 1.65;
+        text-align: left;
+    }
+
+    .p-description {
+        font-size: 1.25rem;
+        line-height: 2;
+        text-align: left;
+    }
+}
+
+/* size > md (Tailwind) */
+@media (min-width: 1024px) {
+    .h2-title {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+
+    .h3-title {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+    }
+
+    .p-description {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin-top: 1rem;
+    }
+}
+
+/* DataTables adjustment */
+table,
+thead,
+tr,
+th,
+td {
+    border-width: 1px;
+    text-align: center;
+}
+
+td .dt-type-numeric {
+    text-align: center !important;
+}
+
+.dt-column-title {
+    text-align: center;
+}
+
+.dt-search {
+    margin-right: 0.75rem;
+}
+
+.dt-length {
+    margin-left: 0.75rem;
+}
+
+.dt-info {
+    margin-left: 0.75rem;
+}
+
+.dt-paging-button {
+    margin-right: 0.5rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.dataTables_wrapper input {
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,35 @@
+/* Dashboard specific styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.dataTables_wrapper input {
+    margin-bottom: 0.5rem;
+}
+
+/* Sidebar transitions */
+#sidebar {
+    transition: width 0.3s ease, min-width 0.3s ease, transform 0.3s ease;
+}
+
+/* Modal styling */
+.modal-open {
+    overflow: hidden;
+}
+
+/* Internship table specific */
+td.cell-contact {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+#internshipTable_length {
+    padding-top: 0.15rem;
+    padding-right: 0.5rem;
+}
